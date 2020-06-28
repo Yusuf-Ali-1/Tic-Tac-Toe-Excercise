@@ -89,14 +89,17 @@ public class Main {
     {
         Scanner kb = new Scanner(System.in);
         int row, column;
-
+        // IMPORTANT: make sure to input an int between 0-2 for row space then input an int between 0-2 FOR GAME TO WORK PROPERLY!!
+        // EXAMPLE 1: 0 1
+        // EXAMPLE 2: 1 2
+        // EXAMPLE 3: 2 0
         System.out.print( "'" + player + "', choose your location (row, column): " );
         row = kb.nextInt();
         column = kb.nextInt();
 
         board[row][column] = player;
     }
-
+    // How to determine a winner
     public static boolean winGame( char player )
     {
         // check horizontal
@@ -122,5 +125,18 @@ public class Main {
 
         return false;
     }
+    //Checking if placement is valid
+    public boolean isValid( int r, int c )
+    {
+        if ( 0 <= r && r <= 2 && 0 <= c && c <= 2 )
+            return true;
+        else
+            return false;
+    }
+
+
+
+
 }
+
 
